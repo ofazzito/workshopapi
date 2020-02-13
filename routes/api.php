@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+##prefijo http://miruta.com/api/{metodo}
+
+#http://workshopapi.test/api/user?api_token=XXXXXXXXXXXX
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
