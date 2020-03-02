@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Http\Request;
 
 /*
@@ -19,4 +20,12 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:api')->group(function() {
+    Route::get('/products/all', 'ProductsController@index')->name('products.all');
+});
+
+Route::get('welcome', function(){
+    return response()->json(['data'=>'Bienvenidos al Workshop de Laravel', 'code' =>200]);
 });
