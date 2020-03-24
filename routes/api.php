@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Http\Request;
 
 /*
@@ -26,4 +27,8 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/correo/basico', 'MailController@enviarBasico')->name('correo.basico');
     Route::get('/correo/html', 'MailController@enviarHtml')->name('correo.html');
     Route::get('/correo/template', 'MailController@enviarTemplate')->name('correo.template');
+});
+
+Route::get('welcome', function(){
+    return response()->json(['data'=>'Bienvenidos al Workshop de Laravel', 'code' =>200]);
 });
