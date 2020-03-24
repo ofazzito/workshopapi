@@ -20,3 +20,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')->group(function(){
+    Route::get('/products/all', 'ProductsController@index')->name('products.all');
+    Route::get('/correo/basico', 'MailController@enviarBasico')->name('correo.basico');
+    Route::get('/correo/html', 'MailController@enviarHtml')->name('correo.html');
+    Route::get('/correo/template', 'MailController@enviarTemplate')->name('correo.template');
+});
